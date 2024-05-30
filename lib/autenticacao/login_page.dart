@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get_fluent/autenticacao/register_page.dart';
 import 'package:get_fluent/uteis/paleta_cores.dart';
+import 'package:get_fluent/widget/custom_button.dart';
 import 'package:get_fluent/widget/custom_text_field.dart';
 
 class LoginPage extends StatelessWidget {
@@ -90,29 +91,7 @@ Widget campoSenha(BuildContext context) {
 }
 
 Widget botaoAcesso(BuildContext context) {
-  return GestureDetector(
-    onTap: () {},
-    child: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        height: 55,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-          color: const Color(0xFF0693F1),
-          borderRadius: BorderRadius.circular(30),
-        ),
-        child: const Align(
-          alignment: Alignment.center,
-          child: Text(
-            'Acessar',
-            style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
-          ),
-        ),
-      ),
-    ),
-  );
+  return CustomButton(text: "Login", onTap: () {});
 }
 
 Widget loginGoogle() {
