@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "31250214499",
+    "project_id": "get-fluent-c8cb5",
+    "storage_bucket": "get-fluent-c8cb5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31250214499:android:f1de2193f70e14cb7d9256",
+        "android_client_info": {
+          "package_name": "com.business.teachergetfluent"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjGAroAL_Jb0Fju9VtXklo4OiSvGMONck"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,9 +5,19 @@ import 'package:get_fluent/uteis/paleta_cores.dart';
 import 'package:get_fluent/widget/custom_button.dart';
 import 'package:get_fluent/widget/custom_text_field.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
 
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+TextEditingController nameController = TextEditingController();
+TextEditingController emailController = TextEditingController();
+TextEditingController senhaController = TextEditingController();
+TextEditingController confirmarSenhaController = TextEditingController();
+
+class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,19 +82,16 @@ class RegisterPage extends StatelessWidget {
   }
 
   Widget campoNome(BuildContext context) {
-    TextEditingController anyController = TextEditingController();
     return CustomTextField(
-      controller: anyController,
+      controller: nameController,
       data: Icons.person_2_rounded,
       hintText: 'Name and Surname',
     );
   }
 
   Widget campoEmail(BuildContext context) {
-    TextEditingController anyController = TextEditingController();
-
     return CustomTextField(
-      controller: anyController,
+      controller: emailController,
       data: Icons.account_circle_rounded,
       hintText: "Email",
       hintTextColor: Colors.white,
@@ -92,9 +99,8 @@ class RegisterPage extends StatelessWidget {
   }
 
   Widget campoSenha(BuildContext context) {
-    TextEditingController anyController = TextEditingController();
     return CustomTextField(
-      controller: anyController,
+      controller: senhaController,
       data: Icons.lock_rounded,
       hintText: "Password",
       showVisibilityIcon: true,
@@ -102,9 +108,8 @@ class RegisterPage extends StatelessWidget {
   }
 
   Widget campoConfirmarSenha(BuildContext context) {
-    TextEditingController anyController = TextEditingController();
     return CustomTextField(
-      controller: anyController,
+      controller: confirmarSenhaController,
       data: Icons.lock_rounded,
       hintText: "Confirm Password",
       showVisibilityIcon: true,

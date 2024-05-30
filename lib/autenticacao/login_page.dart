@@ -6,9 +6,17 @@ import 'package:get_fluent/uteis/paleta_cores.dart';
 import 'package:get_fluent/widget/custom_button.dart';
 import 'package:get_fluent/widget/custom_text_field.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+TextEditingController emailController = TextEditingController();
+TextEditingController senhaController = TextEditingController();
+
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +41,10 @@ class LoginPage extends StatelessWidget {
               botaoAcesso(context),
               const SizedBox(
                 height: 16,
+              ),
+              esqueceuSenha(),
+              const SizedBox(
+                height: 60,
               ),
               loginGoogle(),
               const SizedBox(
@@ -70,20 +82,19 @@ Widget top(BuildContext context) {
 }
 
 Widget campoEmail(BuildContext context) {
-  TextEditingController anyController = TextEditingController();
-
-  return CustomTextField(
-    controller: anyController,
-    data: Icons.account_circle_rounded,
-    hintText: "Email",
-    hintTextColor: Colors.white,
+  return Form(
+    child: CustomTextField(
+      controller: emailController,
+      data: Icons.account_circle_rounded,
+      hintText: "Email",
+      hintTextColor: Colors.white,
+    ),
   );
 }
 
 Widget campoSenha(BuildContext context) {
-  TextEditingController anyController = TextEditingController();
   return CustomTextField(
-    controller: anyController,
+    controller: senhaController,
     data: Icons.lock_rounded,
     hintText: "Password",
     showVisibilityIcon: true,
@@ -92,6 +103,24 @@ Widget campoSenha(BuildContext context) {
 
 Widget botaoAcesso(BuildContext context) {
   return CustomButton(text: "Login", onTap: () {});
+}
+
+Widget esqueceuSenha() {
+  return const Text.rich(
+    TextSpan(
+      text: 'Esqueci minha ',
+      style: TextStyle(color: Colors.white),
+      children: <TextSpan>[
+        TextSpan(
+          text: 'Senha',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+      ],
+    ),
+  );
 }
 
 Widget loginGoogle() {

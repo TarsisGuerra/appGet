@@ -8,7 +8,7 @@ class CustomTextField extends StatefulWidget {
   final Color hintTextColor;
   final bool showVisibilityIcon;
 
-  CustomTextField({
+  const CustomTextField({
     this.controller,
     this.data,
     this.enabled = true,
