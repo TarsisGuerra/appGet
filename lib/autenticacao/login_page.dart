@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get_fluent/autenticacao/register_page.dart';
 import 'package:get_fluent/uteis/paleta_cores.dart';
+import 'package:get_fluent/widget/custom_text_field.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -35,7 +37,7 @@ class LoginPage extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              criarConta()
+              criarConta(context)
             ],
           ),
         ),
@@ -67,55 +69,23 @@ Widget top(BuildContext context) {
 }
 
 Widget campoEmail(BuildContext context) {
-  return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Container(
-          padding: const EdgeInsets.all(5),
-          height: 55,
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              border: Border.all(color: Colors.white, width: 1)),
-          child: const TextField(
-            decoration: InputDecoration(
-              hintStyle:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.normal),
-              hintText: 'Email',
-              border: InputBorder.none,
-              prefixIcon: Icon(
-                Icons.account_circle,
-                color: Colors.white,
-              ),
-            ),
-          )));
+  TextEditingController anyController = TextEditingController();
+
+  return CustomTextField(
+    controller: anyController,
+    data: Icons.account_circle_rounded,
+    hintText: "Email",
+    hintTextColor: Colors.white,
+  );
 }
 
 Widget campoSenha(BuildContext context) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 16),
-    child: Container(
-      padding: const EdgeInsets.all(5),
-      height: 55,
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
-          border: Border.all(color: Colors.white, width: 1)),
-      child: const TextField(
-          decoration: InputDecoration(
-        hintStyle:
-            TextStyle(color: Colors.white, fontWeight: FontWeight.normal),
-        hintText: 'Password',
-        border: InputBorder.none,
-        prefixIcon: Icon(
-          Icons.lock_rounded,
-          color: Colors.white,
-        ),
-        suffixIcon: Icon(
-          Icons.visibility,
-          color: Colors.white,
-        ),
-      )),
-    ),
+  TextEditingController anyController = TextEditingController();
+  return CustomTextField(
+    controller: anyController,
+    data: Icons.lock_rounded,
+    hintText: "Password",
+    showVisibilityIcon: true,
   );
 }
 
@@ -155,7 +125,7 @@ Widget loginGoogle() {
           text: 'Google',
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
       ],
@@ -163,20 +133,28 @@ Widget loginGoogle() {
   );
 }
 
-Widget criarConta() {
-  return const Text.rich(
-    TextSpan(
-      text: 'Não tem conta? ',
-      style: TextStyle(color: Colors.white),
-      children: <TextSpan>[
-        TextSpan(
-          text: 'Registre-se',
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            color: Colors.black,
+Widget criarConta(BuildContext context) {
+  return GestureDetector(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const RegisterPage()),
+      );
+    },
+    child: const Text.rich(
+      TextSpan(
+        text: 'Não tem conta? ',
+        style: TextStyle(color: Colors.white),
+        children: <TextSpan>[
+          TextSpan(
+            text: 'Registre-se',
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              color: Colors.black,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     ),
   );
 }
